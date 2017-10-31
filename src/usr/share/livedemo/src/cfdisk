@@ -1,0 +1,4 @@
+#!/bin/sh
+. func
+/usr/share/livedemo/bin/cfdisk $@
+resdenit

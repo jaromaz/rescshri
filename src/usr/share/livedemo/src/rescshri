@@ -1,0 +1,10 @@
+#!/bin/sh
+
+    . func
+    if [ ! -f $FHDD ] ; then 
+        dmesg -n 1
+        hdd_image
+        mount /dev/hda1 /mnt
+    fi
+
+
