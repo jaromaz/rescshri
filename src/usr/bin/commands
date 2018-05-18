@@ -218,7 +218,7 @@
         "
 
     clear
-    rdwhi "\n\n    Currently available commands:\n\n    "
+    rdwhi "\n    Currently available commands:\n\n    "
     rdef
     for v in $COMNS
     do

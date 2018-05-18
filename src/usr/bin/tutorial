@@ -1,0 +1,65 @@
+#/bin/sh
+
+. func
+clear
+rlwhi "    Shrinking the system partition "
+rlcya "tutorial\n"
+rdef
+rdef
+
+rdef "
+      Example: 
+        hdd: "
+rlred "/dev/vda"
+rdef " | size: 60GB | partition: "
+rlpin "/dev/vda2\n"
+rdef "        filesystem: ext4 | new partition size: "
+rlyel "12G"
+rdef    "B\n\n     1. Run fsck on the filesystem: "
+rlwhi "e2fsck -f "
+rlpin "/dev/vda2"
+rdef "
+     2. Resize the filesystem: "
+rlwhi "resize2fs "
+rlpin "/dev/vda2 "
+rlyel "12G"
+rdef "
+     3. Delete the partition: "
+rlwhi "fdisk "
+rlred "/dev/vda\n"
+rlwhi "          [d]"
+rdef " delete partition | partition number if needed\n"
+rlwhi "          [w]"
+rdef " write table to disk and exit.
+     4. Create a new, smaller partition: "
+rlwhi "fdisk "
+rlred "/dev/vda\n"
+rlwhi "          [n] "
+rdef "add a new "
+rlwhi "[p] "
+rdef "primary partition
+          select partition number
+          First sector: "
+rlwhi "[Enter/default]"
+rdef " | Last sector: "
+rlwhi "+"
+rlyel "12G"
+rdef "
+          Do you want to remove the signature?: "
+rlwhi "[N]"
+rdef " - no\n"
+rlwhi "          [w]"
+rdef " write table to disk and exit.
+     5. Mount this new "
+rlpin "/dev/vda2"
+rdef " partition and check Your\n        data on it.\n"
+rdef "     6. Using "
+rlwhi "fdisk/cfdisk "
+rdef "and "
+rlwhi "mkfs.ext4"
+rdef ", you can create\n        the second partition "
+rlpin "/dev/vda3"
+rdef " in the free space.
+
+"
+

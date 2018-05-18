@@ -1,0 +1,24 @@
+#!/bin/sh
+. func
+kernel="$(uname -r)"
+clear
+rdcya
+echo "
+                            _          _
+     _ __ ___  ___  ___ ___| |__  _ __(_)
+    | '__/ _ \/ __|/ __/ __| '_ \| '__| |
+    | | |  __/\__ \ (__\__ \ | | | |  | |
+    |_|  \___||___/\___|___/_| |_|_|  |_|
+
+              rescUE or shriNK 1.2
+            initr Linux mini-distro"
+rdef
+echo "            Kernel ${kernel}"
+
+rdef "\n    Type "
+rlwhi "commands"
+rdef " to get a complete list\n    of commands. Type "
+rlwhi "tutorial"
+rdef " (or "
+rlwhi "t"
+rdef ") for\n    instructions on shrinking the system\n    partition.\n\n\n\n"

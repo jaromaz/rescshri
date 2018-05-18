@@ -1,14 +1,14 @@
 #!/bin/sh
 
     # -------------------------------------------------------
-    # Preparation of the rescshri Linux mini-distribution
+    # rescshri mini distro options
     # 2017 Jaromaz http://jm.iq.pl
     # -------------------------------------------------------
 
         VERSION='1.2'
         DEMO=0
-        CPU=32
-        HTTPSERVER='http://jm.iq.pl/rescshri/download'
+        CPU=64
+        HTTPSERVER='https://jm.iq.pl/rescshri'
 
     # -------------------------------------------------------
 
@@ -49,16 +49,15 @@
         download_unpack
     fi
 
-    # Instalation
+    # Installation
     rm -r tmp > /dev/null 2>&1
     mkdir tmp
     cp -r download/$CPU/* tmp
     cp -r src/* tmp
     rm -r output > /dev/null 2>&1
     mkdir output
-    mv tmp/bzImage output
 
-    # Preparation of live demo version
+    # Preparation of the live demo version
     if [ $DEMO -eq 1 ] ; then
         mv tmp/usr/share/livedemo/bin/* tmp/usr/bin/
         mv tmp/usr/bin/fdisk tmp/usr/share/livedemo/bin/
@@ -71,8 +70,10 @@
         rm -r tmp/usr/share/livedemo
     fi
 
-    # Initrd cpio archive
-    cd ./tmp
+    # initrd cpio archive
+    cd ./tmp/usr/bin
+    ln tutorial t
+    cd ../../
     find . | cpio --create --format='newc' | gzip > ../output/rescshri.img
     cd ..
     rm -r tmp

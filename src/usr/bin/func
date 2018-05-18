@@ -1,0 +1,15 @@
+#!/bin/sh
+
+    # Colors
+    rdef () { printf "\e[0m${*}"; }
+    rdgra () { printf "\e[30m${*}"; }
+    rdyel () { printf "\e[33m${*}"; }
+    rdcya () { printf "\e[36m${*}"; }
+    rdwhi () { printf "\e[37m${*}"; }
+    rlgra () { printf "\e[90m${*}"; }
+    rlred () { printf "\e[91m${*}"; }
+    rlyel () { printf "\e[93m${*}"; }
+    rlpin () { printf "\e[95m${*}"; }
+    rlcya () { printf "\e[96m${*}"; }
+    rlwhi () { printf "\e[97m${*}"; }
+

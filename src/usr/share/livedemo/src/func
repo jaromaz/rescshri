@@ -1,17 +1,13 @@
 #!/bin/sh
 
-    # Livedemo location
     LD='/usr/share/livedemo';
 
-    # Virtual HDD location
     FHDD="$LD/hdd/hda.img"
 
-    # Virtual HDD initialization
     resinit () {
 
         losetup --partscan --show --find $FHDD > /dev/null 2>&1
 
-        # Virtual partitions - maximum 5
         ln -n /dev/loop0 /dev/hda > /dev/null 2>&1
         for i in 1 2 3 4 5
         do
@@ -19,28 +15,23 @@
         done
     }
 
-    # Virtual HDD reinitialization
     resdenit () {
 
-        # Removing fake hdd
         rm /dev/hda > /dev/null 2>&1
         for i in 1 2 3 4 5
         do
             rm /dev/hda$i > /dev/null 2>&1
         done	
 
-        # Detaching the loop device
         losetup -d /dev/loop0 > /dev/null 2>&1
         sleep 1
 
-        # Resinit call
         resinit
     }
 
 
-    # Image file creation
     hdd_image () {
-        printf "Setting up a virtual hard drive /dev/hda ."
+        printf "Setting up virtual hard disk storage /dev/hda ."
         dd if=/dev/zero of=$FHDD bs=1024 count=6144 > /dev/null 2>&1
         printf "."
         printf "n\np\n\n\n\nw\n" | $LD/bin/fdisk $FHDD > /dev/null 2>&1
@@ -48,8 +39,9 @@
         resinit
         printf "."
 	mkfs.ext4 /dev/loop0p1 > /dev/null 2>&1
-        printf ". "
+        printf "."
         resdenit
+	printf ". "
         printf "done.\n"
         sleep 1
     }

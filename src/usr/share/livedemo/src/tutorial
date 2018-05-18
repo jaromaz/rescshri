@@ -1,0 +1,71 @@
+#/bin/sh
+
+. func
+clear
+rlwhi "    Shrinking the system partition "
+rlcya "tutorial\n"
+rdef
+rdef
+
+rdef "
+      Example: 
+        hdd: "
+rlred "/dev/hda"
+rdef " | size: 6MB | partition: "
+rlpin "/dev/hda1\n"
+rdef "        filesystem: ext4 | new partition size: "
+rlyel "2M"
+rdef "B
+
+     1. Put some data on the mounted "
+rlpin "/dev/hda1"
+rdef " partition
+        and unmout it.
+     2. Run fsck on the filesystem: "
+rlwhi "e2fsck -f "
+rlpin "/dev/hda1"
+rdef "
+     3. Resize the filesystem: "
+rlwhi "resize2fs "
+rlpin "/dev/hda1 "
+rlyel "2M"
+rdef "
+     4. Delete the partition: "
+rlwhi "fdisk "
+rlred "/dev/hda\n"
+rlwhi "          [d]"
+rdef " delete partition | partition number if needed\n"
+rlwhi "          [w]"
+rdef " write table to disk and exit.
+     5. Create a new, smaller partition: "
+rlwhi "fdisk "
+rlred "/dev/hda\n"
+rlwhi "          [n] "
+rdef "add a new "
+rlwhi "[p] "
+rdef "primary partition
+          select partition number
+          First sector: "
+rlwhi "[Enter/default]"
+rdef " | Last sector: "
+rlwhi "+"
+rlyel "2M"
+rdef "
+          Do you want to remove the signature?: "
+rlwhi "[N]"
+rdef " - no\n"
+rlwhi "          [w]"
+rdef " write table to disk and exit.
+     6. Mount this new "
+rlpin "/dev/hda1"
+rdef " partition and check Your\n        data on it.\n"
+rdef "     7. Using "
+rlwhi "fdisk/cfdisk "
+rdef "and "
+rlwhi "mkfs.ext4"
+rdef ", you can create\n        the second partition "
+rlpin "/dev/hda2"
+rdef " in the free space.
+
+"
+
