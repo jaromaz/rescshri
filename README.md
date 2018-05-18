@@ -1,6 +1,4 @@
-# rescshri
-Rescue or shrink - initrd Linux mini-distro
-===========================================
+# rescshri - initrd Linux mini-distro
 
 Rescshri is a shortcut from the combination of the first four letters of the words “rescue” and “shrink”. It is a Linux initram micro-distribution used to shrink the main system partitions on VPS servers.
 
@@ -16,7 +14,7 @@ On [this website](https://jm.iq.pl/rescshri-linux-mini-distribution), directly f
 Installation of rescshri
 -------------------------
 
-1. Download *[amd64](https://jm.iq.pl/rescshri/rescshri-1.2-amd64.tar.gz)* or *[i686](https://jm.iq.pl/rescshri/rescshri-1.2-i686.tar.gz)* rescshri mini-distribution.
+1. Download **[amd64](https://jm.iq.pl/rescshri/rescshri-1.2-amd64.tar.gz)** or **[i686](https://jm.iq.pl/rescshri/rescshri-1.2-i686.tar.gz)** rescshri mini-distribution.
 2. Unpack *rescshri.img* to */boot* directory.
 3. Copy the start entry from *grub.cfg* to the end of file */etc/grub.d/40_custom*.
 4. Replace the reference at *initrd* to */boot/rescshri.img* and give the name *rescshri* to this menu entry.
