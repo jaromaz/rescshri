@@ -14,13 +14,13 @@ On [this website](https://jm.iq.pl/rescshri-linux-mini-distribution), directly f
 Installation of rescshri
 -------------------------
 
-1. Download **[amd64](https://jm.iq.pl/rescshri/rescshri-1.2-amd64.tar.gz)** or **[i686](https://jm.iq.pl/rescshri/rescshri-1.2-i686.tar.gz)** rescshri mini-distribution.
+1. Download **[amd64](https://jm.iq.pl/rescshri/rescshri-1.2-amd64.tar.gz)** or **[i686](https://jm.iq.pl/rescshri/rescshri-1.2-i686.tar.gz)** Debian based rescshri mini-distribution.
 2. Unpack *rescshri.img* to */boot* directory.
 3. Copy the start entry from *grub.cfg* to the end of file */etc/grub.d/40_custom*.
 4. Replace the reference at *initrd* to */boot/rescshri.img* and give the name *rescshri* to this menu entry.
 5. Run *update-grub*.
 6. Restart the system by holding down the shift key and select *rescshri* from the list.
-7. You can use this GitHub project to simply add new programs to this mini-distribution.
+7. You can use [this GitHub project](https://github.com/jaromaz/rescshri) to simply add new programs to this mini-distro.
 
 More information: https://jm.iq.pl/rescshri-linux-mini-distribution
 
