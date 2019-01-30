@@ -22,6 +22,6 @@ Installation of rescshri
 6. Restart the system by holding down the shift key and select *rescshri* from the list.
 7. You can use [this GitHub project](https://github.com/jaromaz/rescshri) to simply add new programs to this mini-distro.
 
-More information: https://jm.iq.pl/rescshri-linux-mini-distribution
+For more information please visit my website: https://jm.iq.pl/rescshri-linux-mini-distribution
 
 Copyright (c) 2017 Jaromaz https://jm.iq.pl
